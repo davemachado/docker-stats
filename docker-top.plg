@@ -18,8 +18,8 @@
 </CHANGES>
 
 <!-- The 'install' script. -->
-<FILE Name="&plugin;/&name;.txz">
-<URL>&gitURL;/v&version;/&name;.txz</URL>
+<FILE Name="&plugin;/&name;-&version;.txz">
+<URL>&gitURL;/v&version;/&name;-&version;.txz</URL>
 <MD5>&md5;</MD5>
 </FILE>
 

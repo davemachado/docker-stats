@@ -27,7 +27,7 @@ jobs:
         with:
           files: |
             docker-top.plg
-            plugins/docker-top/docker-top.txz
+            packages/*.txz
           draft: false
           prerelease: false
         env:

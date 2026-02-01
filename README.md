@@ -25,7 +25,7 @@ To install the plugin on your Unraid server:
 ## Development & Building
 
 1. **Modify Code**: Make changes in the `source/docker-top` directory.
-2. **Build Locally**: Run `./build.sh` to update the `.plg` file and package the `.txz`.
+2. **Build Locally**: Run `./build.sh` to update the `.plg` file and package the versioned `.txz` in the `packages/` directory.
 3. **Release**: 
    - Push a new tag (e.g., `git tag v2026.02.01 && git push origin --tags`).
    - The GitHub Action will automatically create a release and upload the assets.

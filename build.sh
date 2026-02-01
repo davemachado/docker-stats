@@ -4,24 +4,24 @@
 PLUGIN_NAME="docker-top"
 VERSION=$(date +%Y.%m.%d)
 SOURCE_DIR="source/${PLUGIN_NAME}"
-PLUGIN_DIR="plugins/${PLUGIN_NAME}"
-ARCHIVE_NAME="${PLUGIN_NAME}.txz"
-PLG_FILE="${PLUGIN_NAME}.plg" # Moved to root
+PACKAGES_DIR="packages"
+ARCHIVE_NAME="${PLUGIN_NAME}-${VERSION}.txz" # Versioned name
+PLG_FILE="${PLUGIN_NAME}.plg"
 
 echo "Building Unraid Plugin: ${PLUGIN_NAME} v${VERSION}"
 
-# 1. Create the plugin directory
-mkdir -p "${PLUGIN_DIR}"
+# 1. Create the packages directory
+mkdir -p "${PACKAGES_DIR}"
 
 # 2. Create the txz archive
-echo "Creating archive ${PLUGIN_DIR}/${ARCHIVE_NAME}..."
+echo "Creating archive ${PACKAGES_DIR}/${ARCHIVE_NAME}..."
 cd source
-tar -cvJf "../${PLUGIN_DIR}/${ARCHIVE_NAME}" "${PLUGIN_NAME}"
+tar -cvJf "../${PACKAGES_DIR}/${ARCHIVE_NAME}" "${PLUGIN_NAME}"
 cd ..
 
 # 3. Calculate MD5
 echo "Calculating MD5 checksum..."
-ARCHIVE_PATH="${PLUGIN_DIR}/${ARCHIVE_NAME}"
+ARCHIVE_PATH="${PACKAGES_DIR}/${ARCHIVE_NAME}"
 if command -v md5 >/dev/null 2>&1; then
     MD5_SUM=$(md5 -q "${ARCHIVE_PATH}")
 elif command -v md5sum >/dev/null 2>&1; then
