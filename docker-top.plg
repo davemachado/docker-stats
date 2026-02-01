@@ -1,0 +1,67 @@
+<?xml version='1.0' standalone='yes'?>
+<!DOCTYPE PLUGIN [
+  <!ENTITY name      "docker-top">
+  <!ENTITY author    "antigravity">
+  <!ENTITY version   "2026.02.01">
+  <!ENTITY launch    "Dashboard">
+  <!ENTITY gitURL    "https://github.com/dave/unraid-docker-top/releases/download">
+  <!ENTITY pluginURL "https://raw.githubusercontent.com/dave/unraid-docker-top/master/&name;.plg">
+  <!ENTITY md5       "d17e51c7bb2b9d19605e1d261db7943c">
+  <!ENTITY plugin    "/boot/config/plugins/&name;">
+  <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
+]>
+
+<PLUGIN name="&name;" author="&author;" version="&version;" launch="&launch;" pluginURL="&pluginURL;" min="6.9.0">
+
+<CHANGES>
+<CHANGE>2026.02.01 - Initial Release: Dashboard widget with CPU, Memory, and Disk I/O stats.</CHANGE>
+</CHANGES>
+
+<!-- The 'install' script. -->
+<FILE Name="&plugin;/&name;.txz">
+<URL>&gitURL;/v&version;/&name;.txz</URL>
+<MD5>&md5;</MD5>
+</FILE>
+
+<!-- 
+INSTALLATION SCRIPT 
+-->
+<FILE Run="/bin/bash">
+<INLINE>
+# Check if we are checking for updates or installing
+echo "Installing &name;..."
+
+# Create clean directory structure
+mkdir -p &emhttp;
+
+# Unpack the archive if it exists
+if [ -f "&plugin;/&name;.txz" ]; then
+    echo "Extracting plugin files..."
+    tar -xJf "&plugin;/&name;.txz" -C "/usr/local/emhttp/plugins/"
+fi
+
+# Ensure permissions
+chmod -R 755 &emhttp;
+
+echo ""
+echo "----------------------------------------------------"
+echo " &name; has been installed."
+echo " Copyright 2026, &author;"
+echo " Version: &version;"
+echo "----------------------------------------------------"
+echo ""
+</INLINE>
+</FILE>
+
+<!-- REMOVAL SCRIPT -->
+<FILE Run="/bin/bash" Method="remove">
+<INLINE>
+echo "Removing &name;..."
+removepkg &name;-&version;
+rm -rf &emhttp;
+rm -rf &plugin;
+echo "&name; has been removed"
+</INLINE>
+</FILE>
+
+</PLUGIN>
