@@ -16,7 +16,7 @@ A dashboard widget plugin for Unraid that visualizes real-time resource usage of
 To install the plugin on your Unraid server:
 
 1. Copy the **Direct Link** to the `docker-top.plg` file in the root of this repository.
-   - Usually: `https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/master/docker-top.plg`
+   - Usually: `https://raw.githubusercontent.com/davemachado/docker-top/master/docker-top.plg`
 2. Go to your Unraid Web UI.
 3. Navigate to the **Plugins** tab.
 4. Click on **Install Plugin**.
