@@ -29,7 +29,7 @@ function updateDockerTop() {
         html += '<div class="docker-top-header-row">';
         html += '<div class="docker-top-cell docker-top-col-name">NAME</div>';
         html += `<div class="docker-top-cell docker-top-col-cpu docker-top-sortable ${dockerTopSortMetric === 'cpu' ? 'active' : ''}" onclick="setSortMetric('cpu')">CPU %<i class="fa ${dockerTopSortMetric === 'cpu' ? 'fa-sort-desc' : 'fa-sort'}"></i></div>`;
-        html += '<div class="docker-top-cell docker-top-col-mem-usage">MEM USAGE / LIMIT</div>';
+        html += '<div class="docker-top-cell docker-top-col-mem-usage">MEM USAGE</div>';
         html += `<div class="docker-top-cell docker-top-col-mem-pct docker-top-sortable ${dockerTopSortMetric === 'mem' ? 'active' : ''}" onclick="setSortMetric('mem')">MEM %<i class="fa ${dockerTopSortMetric === 'mem' ? 'fa-sort-desc' : 'fa-sort'}"></i></div>`;
         html += '</div>';
 

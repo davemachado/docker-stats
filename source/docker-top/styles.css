@@ -58,10 +58,11 @@
 .docker-top-col-cpu {
     flex: 0 0 80px;
     text-align: right;
+    margin-right: 20px;
 }
 
 .docker-top-col-mem-usage {
-    flex: 0 0 160px;
+    flex: 0 0 130px;
 }
 
 .docker-top-col-mem-pct {
