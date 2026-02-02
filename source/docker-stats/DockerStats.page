@@ -22,7 +22,6 @@ $mytiles[$pluginname]['column2'] =
                 </span>
                 <span class="tile-header-right">
                     <span class="tile-header-right-controls">
-                        <i class="fa fa-refresh control" onclick="updateDockerStats()" title="Refresh" style="cursor: pointer; font-size: 14px;"></i>
                         <a href="/Settings/DockerStatsSettings" title="Settings"><i class="fa fa-fw fa-cog control"></i></a>
                     </span>
                 </span>
