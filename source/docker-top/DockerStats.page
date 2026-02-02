@@ -34,9 +34,6 @@ $mytiles[$pluginname]['column2'] =
             <div id="docker-top-list" class="docker-top-list">
                 <div class="docker-top-loading">Loading stats...</div>
             </div>
-            <div id="docker-top-details" class="docker-top-details-toggle" onclick="toggleDetails()" style="text-align: center; padding: 8px; cursor: pointer; font-size: 1.1rem; opacity: 0.6;">
-                Hide details
-            </div>
         </td>
     </tr>
 </tbody>
@@ -47,19 +44,6 @@ EOT;
 <script src="/plugins/<?php echo $plugin; ?>/stats.js"></script>
 
 <script>
-// Toggle details visibility
-function toggleDetails() {
-    const list = document.getElementById('docker-top-list');
-    const toggle = document.getElementById('docker-top-details');
-    if (list.style.display === 'none') {
-        list.style.display = 'block';
-        toggle.innerText = 'Hide details';
-    } else {
-        list.style.display = 'none';
-        toggle.innerText = 'Show details';
-    }
-}
-
 // Init
 $(document).ready(function() {
     setInterval(updateDockerTop, 3000);
