@@ -66,12 +66,15 @@ foreach ($output as $line) {
     $memUsageParts = explode('/', $parts[3]);
     $memUsedBytes = parseSize($memUsageParts[0]);
 
+    // Format with space between number and unit (e.g., "50 MiB")
+    $memUsageFormatted = preg_replace('/^([\d\.]+)\s*([a-zA-Z]+)$/', '$1 $2', trim($memUsageParts[0]));
+
     $data[] = [
         'name' => $name,
         'cpu' => $cpuVal,
         'mem_pct' => $memPctVal,
         'mem_used' => $memUsedBytes,
-        'mem_usage' => trim($memUsageParts[0])
+        'mem_usage' => $memUsageFormatted
     ];
 }
 
