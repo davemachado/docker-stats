@@ -6,7 +6,7 @@
   <!ENTITY launch    "Dashboard">
   <!ENTITY gitURL    "https://github.com/davemachado/docker-stats/releases/download">
   <!ENTITY pluginURL "https://raw.githubusercontent.com/davemachado/docker-stats/master/&name;.plg">
-  <!ENTITY md5       "25300daa205aae941a8b07278a1fb12f">
+  <!ENTITY md5       "5f9a5e7d0d94590b7243af308445d6c0">
   <!ENTITY plugin    "/boot/config/plugins/&name;">
   <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 ]>
