@@ -6,7 +6,7 @@
   <!ENTITY launch    "Dashboard">
   <!ENTITY gitURL    "https://github.com/davemachado/docker-stats/releases/download">
   <!ENTITY pluginURL "https://raw.githubusercontent.com/davemachado/docker-stats/master/&name;.plg">
-  <!ENTITY md5       "5f9a5e7d0d94590b7243af308445d6c0">
+  <!ENTITY md5       "239278637b76aa8a37cd82e7887b6220">
   <!ENTITY plugin    "/boot/config/plugins/&name;">
   <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 ]>
@@ -49,8 +49,16 @@ if [ -f "&plugin;/&name;-&version;.txz" ]; then
     tar -xJf "&plugin;/&name;-&version;.txz" -C "/usr/local/emhttp/plugins/"
 fi
 
+# Initialize config if it doesn't exist
+if [ ! -f "&plugin;/&name;.cfg" ]; then
+    echo "Creating default configuration..."
+    cp &emhttp;/default.cfg &plugin;/&name;.cfg
+    chmod 644 &plugin;/&name;.cfg
+fi
+
 # Ensure permissions
 chmod -R 755 &emhttp;
+chmod 644 &plugin;/&name;.cfg 2>/dev/null || true
 
 echo ""
 echo "----------------------------------------------------"

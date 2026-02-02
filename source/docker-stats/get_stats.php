@@ -3,6 +3,9 @@
 
 header('Content-Type: application/json');
 
+// Load configuration
+require_once('config.php');
+
 // Helper to parse size strings (e.g., "1.5GiB", "10MB", "1kB") to bytes
 function parseSize($sizeStr) {
     $units = ['B' => 0, 'kB' => 1, 'MB' => 2, 'GiB' => 3, 'TB' => 4, 'KiB' => 1, 'MiB' => 2]; // Docker uses specific units sometimes
@@ -82,6 +85,6 @@ usort($data, function($a, $b) use ($sortBy) {
     }
 });
 
-// Returns top 10
-echo json_encode(array_slice($data, 0, 10));
+// Returns top N containers (configurable)
+echo json_encode(array_slice($data, 0, $docker_stats_container_limit));
 ?>

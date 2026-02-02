@@ -4,6 +4,9 @@ Menu="Dashboard:0"
 $plugin = "docker-stats";
 $pluginname = "Docker Stats";
 
+// Load configuration
+require_once('/usr/local/emhttp/plugins/docker-stats/config.php');
+
 $mytiles[$pluginname]['column2'] =
 <<<EOT
 <tbody id="tblDockerStats" title="Docker Stats">
@@ -11,10 +14,10 @@ $mytiles[$pluginname]['column2'] =
         <td>
             <span class="tile-header">
                 <span class="tile-header-left">
-                    <i class="fa fa-th-large f32"></i>
+                    <i class="fa fa-docker f32"></i>
                     <div class="section">
                         <h3 class="tile-header-main">DOCKER STATS</h3>
-                        <span id="docker-stats-subtitle">Top 10 Containers</span>
+                        <span id="docker-stats-subtitle">Top {$docker_stats_container_limit} Containers</span>
                     </div>
                 </span>
                 <span class="tile-header-right">
