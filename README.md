@@ -2,8 +2,6 @@
 
 A dashboard widget plugin for Unraid that visualizes real-time resource usage of your top 10 Docker containers.
 
-![Icon](source/docker-stats/docker-stats.png)
-
 ## Features
 - **CPU Usage**: Monitor CPU load per container.
 - **Memory Usage**: Track memory consumption.
