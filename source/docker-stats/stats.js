@@ -36,14 +36,14 @@ function updateDockerStats() {
         // Data rows
         data.forEach(function (item) {
             // CPU color class
-            let cpuClass = 'usage-low';
-            if (item.cpu > 50) cpuClass = 'usage-high';
-            else if (item.cpu > 20) cpuClass = 'usage-med';
+            let cpuClass = 'green-text';
+            if (item.cpu > 50) cpuClass = 'red-text';
+            else if (item.cpu > 20) cpuClass = 'orange-text';
 
             // Mem color class
-            let memClass = 'usage-low';
-            if (item.mem_pct > 80) memClass = 'usage-high';
-            else if (item.mem_pct > 50) memClass = 'usage-med';
+            let memClass = 'green-text';
+            if (item.mem_pct > 80) memClass = 'red-text';
+            else if (item.mem_pct > 50) memClass = 'orange-text';
 
             html += '<div class="docker-stats-data-row">';
             html += `<div class="docker-stats-cell docker-stats-col-name" title="${item.name}">${item.name}</div>`;

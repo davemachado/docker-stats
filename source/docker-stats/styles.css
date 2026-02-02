@@ -92,20 +92,6 @@
     opacity: 1;
 }
 
-/* Color Coding for Percentages */
-.usage-low {
-    color: #5cb85c;
-}
-
-.usage-med {
-    color: #f0ad4e;
-}
-
-.usage-high {
-    color: #d9534f;
-}
-
-
 /* Dark Mode Support */
 body.dark .docker-stats-list {
     color: #ccc;
