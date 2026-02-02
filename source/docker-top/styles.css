@@ -1,131 +1,85 @@
 /* source/docker-top/styles.css */
 
-.docker-top-container {
-    padding: 12px 15px;
-    font-family: "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
-}
-
-/* Main container tweaks for table structure */
 .docker-top-list {
     display: block;
-    /* Default to show */
     width: 100%;
+    font-family: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Consolas", monospace;
+    font-size: 12px;
 }
 
 .docker-top-loading {
     padding: 20px;
     text-align: center;
     color: #888;
+    font-style: italic;
 }
 
-/* Column Headers */
-.docker-top-column-headers {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid #ddd;
-    font-size: 12px;
-    font-weight: 600;
+/* Table Layout */
+.docker-top-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.docker-top-table th,
+.docker-top-table td {
+    padding: 4px 8px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.docker-top-table th {
     color: #666;
-}
-
-.docker-top-col-header {
+    font-weight: 600;
+    font-size: 11px;
+    border-bottom: 1px solid #ddd;
     cursor: pointer;
     user-select: none;
-    display: flex;
-    align-items: center;
-    gap: 4px;
 }
 
-.docker-top-col-header:hover {
+.docker-top-table th:hover {
     color: #333;
 }
 
-.docker-top-col-header.active {
+.docker-top-table th.active {
     color: #4a7ebb;
 }
 
-.docker-top-col-header i {
-    font-size: 10px;
+.docker-top-table th i {
+    font-size: 9px;
+    margin-left: 4px;
     opacity: 0.5;
 }
 
-.docker-top-col-header.active i {
+.docker-top-table th.active i {
     opacity: 1;
 }
 
-.docker-top-header-name {
-    flex: 0 0 120px;
-    color: #666;
-}
-
-.docker-top-header-cpu {
-    flex: 0 0 140px;
-    padding-left: 4px;
-}
-
-.docker-top-header-mem {
-    flex: 1;
-    padding-left: 4px;
-}
-
-/* Row Styling */
-.docker-top-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 6px;
-    font-size: 13px;
-    line-height: 1.4;
-}
-
-.docker-top-name {
-    flex: 0 0 120px;
+/* Column alignment */
+.docker-top-table .col-name {
+    text-align: left;
+    max-width: 140px;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
-    padding-right: 8px;
+}
+
+.docker-top-table .col-cpu,
+.docker-top-table .col-mem-pct {
+    text-align: right;
+    width: 60px;
+}
+
+.docker-top-table .col-mem-usage {
+    text-align: left;
+    width: 140px;
+}
+
+/* Data rows */
+.docker-top-table tbody tr {
     color: #333;
 }
 
-/* Metric column (value + bar) */
-.docker-top-metric {
-    display: flex;
-    align-items: center;
-}
-
-.docker-top-metric-cpu {
-    flex: 0 0 140px;
-}
-
-.docker-top-metric-mem {
-    flex: 1;
-}
-
-.docker-top-val-text {
-    flex: 0 0 36px;
-    text-align: right;
-    padding-right: 6px;
-    font-weight: normal;
-    font-size: 12px;
-}
-
-.docker-top-bar-container {
-    flex: 1;
-    height: 10px;
-    background-color: #dddddd;
-    border-radius: 0;
-    overflow: hidden;
-    position: relative;
-    max-width: 100px;
-}
-
-.docker-top-bar-fill {
-    height: 100%;
-    background-color: #888888;
-    width: 0%;
-    transition: width 0.4s ease-out;
+.docker-top-table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.03);
 }
 
 /* Color Coding for Percentages */
@@ -133,17 +87,13 @@
     color: #5cb85c;
 }
 
-/* Green */
 .usage-med {
     color: #f0ad4e;
 }
 
-/* Orange/Yellow */
 .usage-high {
     color: #d9534f;
 }
-
-/* Red */
 
 /* Details Toggle */
 .docker-top-details-toggle {
@@ -159,88 +109,46 @@
     text-decoration: underline;
 }
 
-/* Loading */
-.docker-top-loading {
-    padding: 20px;
-    text-align: center;
-    color: #999;
-    font-style: italic;
-}
-
 /* Dark Mode Support */
-body.dark .docker-top-container {
-    color: #ddd;
-}
-
-body.dark .docker-top-title {
-    color: #fff;
-}
-
-body.dark .docker-top-subtitle {
+body.dark .docker-top-list {
     color: #ccc;
 }
 
-body.dark .docker-top-icon {
-    color: #ccc;
-}
-
-body.dark .docker-top-header {
+body.dark .docker-top-table th {
+    color: #999;
     border-bottom-color: #444;
 }
 
-body.dark .docker-top-controls select {
-    background: #333;
-    color: #ddd;
-    border-color: #555;
-}
-
-body.dark .docker-top-bar-container {
-    background-color: #444;
-}
-
-body.dark .docker-top-bar-fill {
-    background-color: #777;
-}
-
-body.dark .docker-top-name {
+body.dark .docker-top-table th:hover {
     color: #ccc;
+}
+
+body.dark .docker-top-table th.active {
+    color: #69a1e0;
+}
+
+body.dark .docker-top-table tbody tr {
+    color: #ccc;
+}
+
+body.dark .docker-top-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 body.dark .docker-top-details-toggle {
     color: #69a1e0;
 }
 
-/* Dark mode for column headers */
-body.dark .docker-top-column-headers {
-    border-bottom-color: #444;
-    color: #999;
+body.dark .docker-top-loading {
+    color: #777;
 }
 
-body.dark .docker-top-col-header:hover {
-    color: #ccc;
-}
-
-body.dark .docker-top-col-header.active {
-    color: #69a1e0;
-}
-
-body.dark .docker-top-header-name {
-    color: #999;
-}
-
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 500px) {
-    .docker-top-name {
-        flex: 0 0 80px;
+    .docker-top-table .col-mem-usage {
+        display: none;
     }
-    .docker-top-header-name {
-        flex: 0 0 80px;
-    }
-    .docker-top-metric-cpu,
-    .docker-top-header-cpu {
-        flex: 0 0 100px;
-    }
-    .docker-top-bar-container {
-        max-width: 60px;
+    .docker-top-table .col-name {
+        max-width: 100px;
     }
 }

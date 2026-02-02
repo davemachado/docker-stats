@@ -68,7 +68,7 @@ foreach ($output as $line) {
         'cpu' => $cpuVal,
         'mem_pct' => $memPctVal,
         'mem_used' => $memUsedBytes,
-        'mem_used_human' => trim($memUsageParts[0])
+        'mem_usage' => trim($parts[3])
     ];
 }
 
