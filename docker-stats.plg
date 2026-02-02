@@ -14,7 +14,8 @@
 <PLUGIN name="&name;" author="&author;" version="&version;" launch="&launch;" pluginURL="&pluginURL;" min="6.9.0">
 
 <CHANGES>
-<CHANGE>2026.02.01 - Initial Release: Dashboard widget with CPU, Memory, and Disk I/O stats.</CHANGE>
+###2026.02.01
+ - Initial Release
 </CHANGES>
 
 <!-- The 'install' script. -->
