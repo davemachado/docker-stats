@@ -10,7 +10,7 @@ function setSortMetric(metric) {
 function updateDockerTop() {
     const container = $('#docker-top-list');
 
-    if (container.find('.docker-top-table').length === 0) {
+    if (container.find('.docker-top-grid').length === 0) {
         container.html('<div class="docker-top-loading">Loading...</div>');
     }
 
@@ -22,19 +22,18 @@ function updateDockerTop() {
             return;
         }
 
-        // Build table
-        let html = '<table class="docker-top-table">';
+        // Build grid layout with divs
+        let html = '<div class="docker-top-grid">';
 
         // Header row
-        html += '<thead><tr>';
-        html += '<th class="col-name">NAME</th>';
-        html += `<th class="col-cpu ${dockerTopSortMetric === 'cpu' ? 'active' : ''}" onclick="setSortMetric('cpu')">CPU %<i class="fa ${dockerTopSortMetric === 'cpu' ? 'fa-sort-desc' : 'fa-sort'}"></i></th>`;
-        html += '<th class="col-mem-usage">MEM USAGE / LIMIT</th>';
-        html += `<th class="col-mem-pct ${dockerTopSortMetric === 'mem' ? 'active' : ''}" onclick="setSortMetric('mem')">MEM %<i class="fa ${dockerTopSortMetric === 'mem' ? 'fa-sort-desc' : 'fa-sort'}"></i></th>`;
-        html += '</tr></thead>';
+        html += '<div class="docker-top-header-row">';
+        html += '<div class="docker-top-cell docker-top-col-name">NAME</div>';
+        html += `<div class="docker-top-cell docker-top-col-cpu docker-top-sortable ${dockerTopSortMetric === 'cpu' ? 'active' : ''}" onclick="setSortMetric('cpu')">CPU %<i class="fa ${dockerTopSortMetric === 'cpu' ? 'fa-sort-desc' : 'fa-sort'}"></i></div>`;
+        html += '<div class="docker-top-cell docker-top-col-mem-usage">MEM USAGE / LIMIT</div>';
+        html += `<div class="docker-top-cell docker-top-col-mem-pct docker-top-sortable ${dockerTopSortMetric === 'mem' ? 'active' : ''}" onclick="setSortMetric('mem')">MEM %<i class="fa ${dockerTopSortMetric === 'mem' ? 'fa-sort-desc' : 'fa-sort'}"></i></div>`;
+        html += '</div>';
 
         // Data rows
-        html += '<tbody>';
         data.forEach(function (item) {
             // CPU color class
             let cpuClass = 'usage-low';
@@ -46,15 +45,15 @@ function updateDockerTop() {
             if (item.mem_pct > 80) memClass = 'usage-high';
             else if (item.mem_pct > 50) memClass = 'usage-med';
 
-            html += '<tr>';
-            html += `<td class="col-name" title="${item.name}">${item.name}</td>`;
-            html += `<td class="col-cpu ${cpuClass}">${item.cpu.toFixed(2)}%</td>`;
-            html += `<td class="col-mem-usage">${item.mem_usage}</td>`;
-            html += `<td class="col-mem-pct ${memClass}">${item.mem_pct.toFixed(2)}%</td>`;
-            html += '</tr>';
+            html += '<div class="docker-top-data-row">';
+            html += `<div class="docker-top-cell docker-top-col-name" title="${item.name}">${item.name}</div>`;
+            html += `<div class="docker-top-cell docker-top-col-cpu ${cpuClass}">${item.cpu.toFixed(2)}%</div>`;
+            html += `<div class="docker-top-cell docker-top-col-mem-usage">${item.mem_usage}</div>`;
+            html += `<div class="docker-top-cell docker-top-col-mem-pct ${memClass}">${item.mem_pct.toFixed(2)}%</div>`;
+            html += '</div>';
         });
-        html += '</tbody></table>';
 
+        html += '</div>';
         container.html(html);
     }).fail(function () {
         container.html('<div class="docker-top-loading" style="color:#d9534f">Failed to load stats.</div>');
