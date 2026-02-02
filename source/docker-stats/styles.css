@@ -30,11 +30,9 @@
     border-bottom: 1px solid #ddd;
     font-weight: 600;
     color: #666;
-    font-size: 1.1rem;
 }
 
 .docker-stats-data-row {
-    font-size: 1.1rem;
     color: #333;
 }
 
