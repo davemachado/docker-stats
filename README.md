@@ -5,8 +5,7 @@ A dashboard widget plugin for Unraid that visualizes real-time resource usage of
 ## Features
 - **CPU Usage**: Monitor CPU load per container.
 - **Memory Usage**: Track memory consumption.
-- **Disk I/O**: Watch read/write throughput.
-- **Visuals**: Clean, bar-chart style interface matching Unraid's "Processor" widget.
+- **Visuals**: Clean interface on the Dashboard tab
 - **Real-time**: Updates every 3 seconds.
 
 ## Installation
