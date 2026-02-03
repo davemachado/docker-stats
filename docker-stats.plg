@@ -2,11 +2,11 @@
 <!DOCTYPE PLUGIN [
   <!ENTITY name      "docker-stats">
   <!ENTITY author    "Dave Machado">
-  <!ENTITY version   "2026.02.01">
+  <!ENTITY version   "2026.02.02">
   <!ENTITY launch    "Dashboard">
   <!ENTITY gitURL    "https://github.com/davemachado/docker-stats/releases/download">
   <!ENTITY pluginURL "https://raw.githubusercontent.com/davemachado/docker-stats/master/&name;.plg">
-  <!ENTITY md5       "239278637b76aa8a37cd82e7887b6220">
+  <!ENTITY md5       "52ddb55db5bfe19c73aeeaf91109b0e3">
   <!ENTITY plugin    "/boot/config/plugins/&name;">
   <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 ]>
