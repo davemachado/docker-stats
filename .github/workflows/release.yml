@@ -21,13 +21,20 @@ jobs:
           chmod +x build.sh
           ./build.sh
 
+      - name: Get version from tag
+        id: get_version
+        run: |
+          # Extract version from tag (v2026.02.02 -> 2026.02.02)
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
           files: |
             docker-stats.plg
-            packages/*.txz
+            packages/docker-stats-${{ steps.get_version.outputs.version }}.txz
           draft: false
           prerelease: false
         env:
